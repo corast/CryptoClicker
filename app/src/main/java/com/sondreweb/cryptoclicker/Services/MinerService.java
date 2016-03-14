@@ -80,7 +80,7 @@ public class MinerService extends Service {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             switch (action){
-                case TabFragmentClick.SEND_RESPONSE: //håper dette ikke lager krøll
+                case ResourceFragment.SEND_RESPONSE: //håper dette ikke lager krøll
                     //Log.d(TAG, " Broadcast Mottat i TabFragmentClick");
                     btcAmountMined = 0; //threadsafe?
                     break;

@@ -14,8 +14,6 @@ public class MinerIntentService extends IntentService{
 
     private static final String MINE = "com.sondreweb.cryptoclicker.Tabs.MINE";
 
-    private static final String  PRODUCE= "com.sondreweb.cryptoclicker.Tabs.PRODUCE";
-
     public MinerIntentService() {
         super("MinerIntentService");
     }
@@ -29,9 +27,14 @@ public class MinerIntentService extends IntentService{
             final String action = intent.getAction();
             if(MINE.equals(action)){//betyr at vi ber intetet om å mine
                 Log.d("MinerIntentService", "Click");
+
                 Profile.CurrentProfil.click();
-                //update ui skal kjøre etter dette...?
-                //ResourceFragment.updateResourceUITest();
+
+                //burde kanskje regne ut hvor mye vi skal få perr click her?
+
+
+                ResourceFragment.updateResourceUI();
+                //oppdatere UI med static function.
             }
         }
     }

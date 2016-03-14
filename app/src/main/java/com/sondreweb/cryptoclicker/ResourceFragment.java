@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,21 +25,20 @@ public class ResourceFragment extends Fragment{
 
     private IntentFilter filter = new IntentFilter();
 
-    private TextView btcAmount;
-    private static TextView btcAmountStatic; //testing
-    private TextView udsAmount;
+    private static TextView btcAmount; //fungerte bedre en ikke-static
 
-    private Intent broadCastIntentToService;
+    private static TextView udsAmount;
+
+    private Intent broadCastIntentToService; //må bruke denne
 
     public ResourceFragment(){} //tom konstruktør
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_resource,container,false);
+        View view = inflater.inflate(R.layout.fragment_resource, container, false);
 
         btcAmount = (TextView) view.findViewById(R.id.btcAmountTextView);
-        btcAmountStatic = (TextView) view.findViewById(R.id.btcAmountTextView);
 
         udsAmount = (TextView) view.findViewById(R.id.usdAmountTextView);
 
@@ -60,14 +58,13 @@ public class ResourceFragment extends Fragment{
     };
 
     private void getBroadcastData(Intent intent){
-        Log.d(TAG, "Vi har mottatt Broadcasten");
         Bundle b = intent.getBundleExtra("Bundle");
         double btcAmount = b.getDouble("btcAmountMined");
         Profile.CurrentProfil.addBTCs(btcAmount);
         //må gjøre noe mer med denne.
         getActivity().sendBroadcast(broadCastIntentToService);
         //send Message til service.
-        updateResourceUI(50); //50ms delay, bare fordi.
+        updateResourceUI();
     }
 
     @Override
@@ -78,28 +75,31 @@ public class ResourceFragment extends Fragment{
         getActivity().registerReceiver(broadcastReceiver, filter);
     }
 
-    public void updateResourceUI(int delay){
+    public static void updateResourceUI(){
         //delay pga MinerIntentService trenger litt tid på å oppdatere hva vi har av BTCs.
-        btcAmount.postDelayed(new Runnable() {  //burde denne være tread safe?
+        btcAmount.post(new Runnable() {  //burde denne være tread safe?
             public void run() {
                 btcAmount.setText(Profile.CurrentProfil.returnBTCamountAsString());
             }
-        }, delay);
+        });
     }
+
+
+    //skulle bare test noe
+    public static void updateResourceUITest(int delay){
+        btcAmount.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btcAmount.setText(Profile.CurrentProfil.returnBTCamountAsString());
+            }
+        }, delay); //får se om dette fungerer..
+    }
+
 
     @Override
     public void onPause() {
         super.onPause();
         //fjerner slik at vi ikke henter fram broadcast når fragmentet sover.
         getActivity().unregisterReceiver(broadcastReceiver);
-    }
-
-    public static void updateResourceUITest(){
-        btcAmountStatic.post(new Runnable() {
-            @Override
-            public void run() {
-                btcAmountStatic.setText(Profile.CurrentProfil.returnBTCamountAsString());
-            }
-        }); //får se om dette fungerer..
     }
 }
