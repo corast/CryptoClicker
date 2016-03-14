@@ -92,4 +92,15 @@ public class GameActivity extends AppCompatActivity {
         return super.getBaseContext();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "I Onpause for GameActivity");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "I OnStop for GameActivity");
+    }
 }

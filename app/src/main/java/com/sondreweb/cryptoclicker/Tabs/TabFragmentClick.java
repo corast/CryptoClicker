@@ -75,9 +75,7 @@ public class TabFragmentClick extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().startService(clickServiceIntent);//
-
-
+        getActivity().startService(clickServiceIntent);//tror ikke jeg trenger dette..
     }
 
     @Override

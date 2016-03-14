@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sondreweb.cryptoclicker"
     android:installLocation="auto">
-    <!--android:installLocation="auto" fikser error i Genymotion om fake_path/present -->
-    <!-- Husk å legge til nye activities, eller så krasjer det...-->
+
+    <!-- android:installLocation="auto" fikser error i Genymotion om fake_path/present -->
+    <!-- Husk å legge til nye activities, eller så krasjer det... -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,15 +27,19 @@
             android:name=".NewGameActivity"
             android:noHistory="true" />
         <activity android:name=".ContinueActivity" />
-        <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".GameActivity"></activity>
-        <service android:name=".Services.MinerIntentService" >
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".GameActivity" />
+
+        <service android:name=".Services.MinerIntentService">
             <intent-filter>
-                <action android:name="com.sondreweb.cryptoclicker.Tabs.MINE"></action>
+                <action android:name="com.sondreweb.cryptoclicker.Tabs.MINE" />
             </intent-filter>
         </service>
+        <service android:name=".Services.MinerService" />
 
-        <service android:name=".Services.MinerService"></service>
+        <activity
+            android:name=".SettingsActivity_NEW"
+            android:label="@string/title_activity_settings_activity__new"></activity>
     </application>
 
 </manifest>

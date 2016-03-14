@@ -24,7 +24,11 @@ import com.sondreweb.cryptoclicker.game.Profile;
 
 //  https://www.websmithing.com/2011/02/01/how-to-update-the-ui-in-an-android-activity-using-data-from-a-background-service/
 public class MinerService extends Service {
-        //TODO: fiks problemet med at vi ikke kan være sikre på om dataen har blitt hentet ut.
+
+    //TODO: gjør slik at vi kan sende med data fra en eksisterende profil og fortsett fra den.
+    //enten sende profilen med intent, med deres data.
+    //eller bare sende med nødvendig data i intentet, som value.
+
             //for å ta imot data hvet jeg ikke helt. (hente de ut selv?)
     private static final String TAG = "MainMainerService";
     public static final String BROADCAST_ACTION = "com.sondreweb.cryptoclicker.action.DISPLAYEVENT";
@@ -87,7 +91,7 @@ public class MinerService extends Service {
                 case TabFragmentMarket.SEND_VALUE_CHANGE: //viss vi skal oppdatere hvor mye vi får pr sec.
                     Bundle b = intent.getBundleExtra("Bundle");
                     setProfileMiningValue(b.getDouble("valueChange"));
-                    Log.i(TAG,"Vi miner: "+String.format("%.4f", profileMiningValue)+" btc pr sec" );
+                    //Log.i(TAG,"Vi miner: "+String.format("%.4f", profileMiningValue)+" btc pr sec" );
                     break;
             }
             //send broadcast for motatt data.

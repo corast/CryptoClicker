@@ -20,10 +20,42 @@
 
     <!-- Mulig det er bedre å bruke LinearLayout viss disse Relative Layoutene skal forsvinne en
      eller annen gang og da skal viewene flytte seg en plass opp.-->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentTop="true"
+       android:orientation="horizontal"
+       android:id="@+id/marketUpperButtonLayout">
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Show Upgrades"
+           android:layout_weight="2"/>
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Show Click Upgrades"
+           android:layout_weight="2"/>
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Show All"
+           android:layout_weight="2"/>
+
+   </LinearLayout>
+    <ListView
+        android:id="@+id/markedListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+<!--
     <RelativeLayout
+        android:layout_below="@id/marketUpperButtonLayout"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_alignParentTop="true"
         android:background="@color/ManitouBlue"
         android:layout_margin="5dp"
         android:id="@+id/cpu1Layout">
@@ -217,10 +249,9 @@
             android:layout_toRightOf="@+id/textView2"
             android:layout_toEndOf="@+id/textView2" />
 
-
     </RelativeLayout>
 
-
+ -->
 
 
 

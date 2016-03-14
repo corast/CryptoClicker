@@ -22,7 +22,6 @@ public class MinerIntentService extends IntentService{
     protected void onHandleIntent(Intent intent) {
         //hvor vi skal click på knappen.
         //todo: calculate amount to get when clicking
-        //todo: click.
         if(intent != null){
             final String action = intent.getAction();
             if(MINE.equals(action)){//betyr at vi ber intetet om å mine

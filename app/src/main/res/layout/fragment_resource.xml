@@ -5,6 +5,7 @@
 
     <RelativeLayout
         android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,7 +23,7 @@
             android:id="@+id/btcAmountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="0.0000"
             android:textSize="16sp"
             android:textColor="@color/gold"
             />
@@ -30,6 +31,7 @@
 
     <RelativeLayout
         android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/usdLayout"
@@ -43,15 +45,19 @@
             android:text="USD$:"
             android:textSize="16sp"
             android:id="@+id/usdTextView" />
+
         <TextView
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:id="@+id/usdAmountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="0.00"
             android:textSize="16sp"
             android:textColor="@color/greenDollar"/>
+
+
+
     </RelativeLayout>
 
 </LinearLayout>
