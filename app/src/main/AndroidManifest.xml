@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sondreweb.cryptoclicker"
+    android:installLocation="auto">
+    <!--android:installLocation="auto" fikser error i Genymotion om fake_path/present -->
+    <!-- Husk å legge til nye activities, eller så krasjer det...-->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:installLocation="auto"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:noHistory="true"
+            android:theme="@style/splashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainMenuActivity" />
+        <activity
+            android:name=".NewGameActivity"
+            android:noHistory="true" />
+        <activity android:name=".ContinueActivity" />
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".GameActivity"></activity>
+        <service android:name=".Services.MinerIntentService" >
+            <intent-filter>
+                <action android:name="com.sondreweb.cryptoclicker.Tabs.MINE"></action>
+            </intent-filter>
+        </service>
+
+        <service android:name=".Services.MinerService"></service>
+    </application>
+
+</manifest>

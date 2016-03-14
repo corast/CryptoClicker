@@ -1,0 +1,18 @@
+<resources>
+    <!-- Mange Strings jeg ikke har puttet inni her enda, siden kjapp testing (Legg til senere) -->
+    <string name="app_name">Crypto Clicker</string>
+    <string name="usernameString">Username:</string>
+
+    <!-- Verdiene vi kan velge mellom når vi velger speed inni new game -->
+    <string-array name="speedSpinnerOptions">
+        <item>Normal</item>
+        <item>Fast</item>
+        <item>Very Fast</item>
+    </string-array>
+
+    <!-- Verdiene vi kan velge mellom når vi velger språk inni settings -->
+    <string-array name="optionsMenuLanguage">
+        <item>NOK</item>
+        <item>ENG</item>
+    </string-array>
+</resources>
