@@ -5,14 +5,23 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.sondreweb.cryptoclicker.ResourceFragment;
+import com.sondreweb.cryptoclicker.game.ClickUpgrade;
 import com.sondreweb.cryptoclicker.game.Profile;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 /**
- * Created by sondre on 07-Mar-16.
+ * Ansvar for å starte Click funskjon i Profile, og skille på om vi klikker på Bitcoinen eller holder inne og drar.
  */
 public class MinerIntentService extends IntentService{
 
-    private static final String MINE = "com.sondreweb.cryptoclicker.Tabs.MINE";
+    private static final String TAG = MinerIntentService.class.getName();
+    public static final String MINE = "com.sondreweb.cryptoclicker.Tabs.MINE";
+    public static final String HOLD = "com.sondreweb.cryptoclicker.Tabs.HOLD";
 
     public MinerIntentService() {
         super("MinerIntentService");
@@ -21,28 +30,35 @@ public class MinerIntentService extends IntentService{
     @Override
     protected void onHandleIntent(Intent intent) {
         //hvor vi skal click på knappen.
-        //todo: calculate amount to get when clicking
         if(intent != null){
-            final String action = intent.getAction();
-            if(MINE.equals(action)){//betyr at vi ber intetet om å mine
-                Log.d("MinerIntentService", "Click");
+            if(intent.getAction() != null){
+            switch (intent.getAction()) {
+                case MINE:
+                    Profile.CurrentProfil.click();
+                    break;
+                case HOLD:
+                    Profile.CurrentProfil.hold();
+                    break;
+                }
 
-                Profile.CurrentProfil.click();
-
-                //burde kanskje regne ut hvor mye vi skal få perr click her?
-
-
-                ResourceFragment.updateResourceUI();
-                //oppdatere UI med static function.
+                ResourceFragment.updateResourceUIWithMainThread();
             }
+
+            /*final String action = intent.getAction();
+            if(MINE.equals(action)){//betyr at vi ber intetet om å mine
+                Profile.CurrentProfil.click();
+                ResourceFragment.updateResourceUIWithMainThread();//siden vi er i en annen tråd må vi oppdatere på denne måten.
+            }
+
+            Log.d(TAG,"Action: "+ intent.getAction()); */
         }
+
+
     }
 
     @Override
     public void onDestroy() {
-        //sende data back?
         super.onDestroy();
-
     }
 
 }

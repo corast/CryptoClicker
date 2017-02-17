@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Tabs.TabFragmentClick"
+    android:background="@color/greyLite"
+    android:id="@+id/clickTabRelativeLayout">
+    <!-- If orientaion landscape set height fill_parent, ellers sett width fill_parent.
+        Og width skal være like stor som height, men får ikke det helt til -->
+        <ImageButton
+            android:layout_width="2000dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:layout_centerInParent="true"
+            android:id="@+id/bitcoinClicker"
+            android:background="@drawable/bitcoin"/>
+
+</RelativeLayout>

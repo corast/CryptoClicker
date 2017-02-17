@@ -20,7 +20,7 @@
         <TextView
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:id="@+id/btcAmountTextView"
+            android:id="@+id/tv_resource_btc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0000"
@@ -49,7 +49,7 @@
         <TextView
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:id="@+id/usdAmountTextView"
+            android:id="@+id/tv_resource_usd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"

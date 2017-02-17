@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Animasjon som spiller av hvert 200 ms vi holder knappen inne og drar,  -->
+
+    <rotate
+        android:fromDegrees="0"
+        android:duration="50"
+        android:toDegrees="-2"
+        android:repeatCount="1"
+        android:repeatMode="reverse"
+        android:pivotX="50%"
+        android:pivotY="50%"/>
+    <rotate
+        android:startOffset="50"
+        android:fromDegrees="0"
+        android:duration="50"
+        android:toDegrees="2"
+        android:repeatCount="1"
+        android:repeatMode="reverse"
+        android:pivotX="50%"
+        android:pivotY="50%"/>
+</set>

@@ -1,40 +1,67 @@
 package com.sondreweb.cryptoclicker.game;
 
+import android.util.Log;
+
+import com.sondreweb.cryptoclicker.R;
+
 import java.util.ArrayList;
 
 /**
- * Created by sondre on 02-Mar-16.
+ * Ansvar for å lage ClickUpgrade objecer som profilen skal bruke for å klikke med mer verdi.
  */
 public class ClickUpgrade extends Info{
 
-    private ArrayList<ClickUpgrade> clickUpgradeArrayList;
+    private static final String TAG = ClickUpgrade.class.getName();
 
-    //TODO: Parcelable
 
-    private boolean bought = false;
+    private boolean bought; //oversikt om dette object er kjøpt enda eller ikke.
 
-    public ClickUpgrade(String title,String name, String srcIcon, double value, double cost) {
-        super(title, name, srcIcon, value, cost);
+    private long id; //dette skal være IDen til denne ClickUpgraden.
+
+            //title, description, srcIcon, value, cost, bought
+    //kunstruktro til databasen
+    public ClickUpgrade(String title,String description, int srcIcon, double value, double cost){
+        super(title, description, srcIcon, value, cost);
+        this.bought = false;
+        //ID vill være null, men den vill få en ID fra databasen når vi henter ut senere.
+    }
+
+    //kunstruktro fra databasen ny profil.
+    public ClickUpgrade(long id,String title,String description, int srcIcon, double value, double cost){
+        super(title, description, srcIcon, value, cost);
+        this.bought = false;
+        this.id = id;
+    }
+
+    //konstructor fra Databasen
+    public ClickUpgrade(long id,String title,String description, int srcIcon, double value, double cost, int bought) {
+        super(title, description, srcIcon, value, cost);
+        this.bought = getBoughtBool(bought); //slik at vi kan hente alt fra databasen
+        this.id = id; //setter IDen.
     }
 
     public boolean isBought(){return bought;}
+
     public void setBought(){bought = true;}
 
-    public void initaliseUpgrades(){
-        // String name, String imgSrc, double value, int cost, boolean bought
-        clickUpgradeArrayList = new ArrayList <ClickUpgrade>();
-        clickUpgradeArrayList.add(new ClickUpgrade("Upgrade1","Info om oppgraderingen vi har laget", "drawable/circle_star_yellow.png",0.01,20));
-        clickUpgradeArrayList.add(new ClickUpgrade("Upgrade2","Info om oppgraderingen vi har laget", "drawable/circle_star_yellow.png",0.01,20));
-        clickUpgradeArrayList.add(new ClickUpgrade("Upgrade3","Info om oppgraderingen vi har laget", "drawable/circle_star_yellow.png",0.01,20));
-
-        //trenger flere av disse etterhvert.
-
-        //looper gjennom og legger upgradene inni upgrade arrayet.
-
-        //TODO: lag upgrades som vi legger inn i ArrayListen til spilleren.
+    public boolean getBoughtBool(int b){//når vi har int men trenger bool
+        if(b == 1){
+            return true;
+        }else if(b == 0){
+            return false;
+        }else{
+            Log.d(TAG, "Error, vi får noe annet en 1 og 0 fra databasen.");
+            return false;
+        }
     }
 
+    public long getId(){
+        return this.id;
+    }
 
+    public int getBoughtInt(){ //når vi har bool men trenger int.
+        return (bought) ? 1 : 0; //true: return 1 ,else return 0
+    }
 
 
     @Override

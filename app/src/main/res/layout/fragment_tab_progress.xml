@@ -2,12 +2,106 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Tabs.TabFragmentProgress">
+    tools:context=".Tabs.TabFragmentProgress"
+    android:layout_margin="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="20dp">
     <!-- Layout fil for cryptoclicker progress/status på hva vi har-->
 
+    <!-- bigBTCcounter, usdAmount, totUSdAmount, totbtcAmount, clikcs, clickValue, btcValue. -->
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:id="@+id/tvMiningValue"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Progress tab open"/>
+        android:text="Mining value pr sec: "
+        android:textSize="@dimen/static_text_size_progress"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/tv_progress_btcValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMiningValue"
+        android:textSize="@dimen/text_size_progress"
+        android:text="200.123"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/gold" />
+
+    <TextView
+        android:id="@+id/tvTotalMined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total BTC mined: "
+        android:layout_below="@id/tv_progress_btcValue"
+        android:textSize="@dimen/static_text_size_progress"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/tv_progress_totBtcValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTotalMined"
+        android:textSize="@dimen/text_size_progress"
+        android:text="222222222222"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/gold"/>
+
+    <TextView
+        android:id="@+id/text_progress_totUsdAmount"
+        android:layout_below="@id/tv_progress_totBtcValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total USD amount:"
+        android:textSize="@dimen/static_text_size_progress"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/tv_progress_totUsdAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_progress_totUsdAmount"
+        android:textSize="@dimen/text_size_progress"
+        android:text="212414141.241"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/greenDollar"/>
+
+    <TextView
+        android:id="@+id/tv_progress_clickValue_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BTC per click: "
+        android:textSize="@dimen/static_text_size_progress"
+        android:layout_below="@id/tv_progress_totUsdAmount"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/tv_progress_clickValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="232312.4124"
+        android:textSize="@dimen/text_size_progress"
+        android:layout_below="@id/tv_progress_clickValue_text"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/gold"/>
+
+    <TextView
+        android:id="@+id/tv_progress_clicks_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clicks: "
+        android:textSize="@dimen/static_text_size_progress"
+        android:layout_below="@id/tv_progress_clickValue"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/tv_progress_clicks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_progress_clicks_text"
+        android:textSize="@dimen/text_size_progress"
+        android:text="212414141"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>

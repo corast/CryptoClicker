@@ -2,71 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Tabs.TabFragmentClick">
-    <!-- Layout fil for cryptoclicker click-->
+    tools:context=".Tabs.TabFragmentClick"
+    android:background="@color/greyLite"
+    android:id="@+id/clickTabRelativeLayout">
 
-    <!--
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:id="@+id/bitcoinLayout">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bitcoins:"
-                android:textSize="20sp"
-                android:id="@+id/bitcoinText"
-                android:paddingRight="5dp"/>
-            <TextView
-                android:id="@+id/bitcoinAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/gold"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/usdLayout"
-            android:layout_below="@+id/bitcoinLayout"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="USD$:"
-                android:textSize="20sp"
-                android:id="@+id/usdText"
-                android:paddingRight="5dp"/>
-            <TextView
-                android:id="@+id/usdAmountTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/greenDollar"/>
-        </LinearLayout>
-
-    -->
-
-
+    <!--TODO: få dette til å se litt bedre ut en bare med alpha...eksempelvis shadow bilde under som vise/ikke-vises -->
+    <!-- If orientaion landscape set height fill_parent, ellers sett width fill_parent. -->
+    <!-- Og width skal være like stor som height -->
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:src="@drawable/bitcoin"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="false"
-            android:scaleType="centerInside"
-            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:id="@+id/bitcoinClicker"
-            android:background="@null"/>
-
+            android:background="@drawable/bitcoin"
+            android:scaleType="fitCenter" />
 
     <!-- https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSbzuUP9v4aTad3XW_uh_7SjLZ85D_SGeVfvqmzohx0ZndyKCRnlg -->
 </RelativeLayout>

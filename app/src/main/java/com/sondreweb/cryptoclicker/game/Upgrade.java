@@ -1,64 +1,79 @@
 package com.sondreweb.cryptoclicker.game;
 
+import android.nfc.Tag;
+import android.util.Log;
+
+import com.sondreweb.cryptoclicker.R;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
- * Created by sondre on 01-Mar-16.
+ * Ansvar for å lage Upgrade Objecter, som blir brukt av MinerServicen for å mine raskere.
  */
 public class Upgrade extends Info {
+    private final static String TAG = "Upgrade";
 
-    ArrayList<Upgrade> upgradeArrayList;
-    //TODO: Parcelable
-
- //TODO: legge til flere funskjoner.
-    //TODO: lage Buy funskjoner.
 
     private int amount = 0; //default verdi
+    private long id; //dette skal være IDen til denne Upgraden.
 
-    private boolean bought = false;
 
-    public Upgrade(String title, String desc, String imageSrc, double value, int cost) {
+        //ved henting av Lagrede Upgrades tilhørende profiler.
+        // String title, String desc, int imageSrc, double value, double cost, int amount
+
+    //konstruktor på data fra databasen
+    public Upgrade(long id,String title, String desc, int imageSrc, double value, double cost, int amount) {
         super(title, desc, imageSrc, value, cost);
+        this.amount = amount;
+        this.id = id;
+    }
+
+    //konstruktor på data fra databasen ny profil.
+    public Upgrade(long id,String title, String desc, int imageSrc, double value, double cost){
+        super(title,desc,imageSrc,value,cost);
+        this.amount = 0;
+        this.id = id;
+    }
+
+      // String title, String desc, int imageSrc, double value, double cost
+    //konstruktor på data til databasen.
+    public Upgrade(String title, String desc, int imageSrc, double value, double cost){
+        super(title,desc,imageSrc,value,cost);
+        this.amount = 0;
     }
 
     public void setAmount(){
+        //forandre Cost kanskje, slik at det blir litt dyrer på kjøpe neste gang?
+        adjustPrice();
         amount++;
+    }
+
+    public void adjustPrice(){//denne skal øke prisen for hver gang vi kjøper noe.
+        this.setCost();
     }
 
     public double getAccumalatedvalue(){
         return ((Info) this).getValue()*amount;
     }
 
-    public boolean isBought(){
-        return bought;
+
+    public int getAmount() {
+        return amount;
     }
 
-    public void setIsBought(){
-        bought = true;
-    }
-
-    public void initializeUpgrades(){
-        // String title,String desc, String imgSrc, double value, int cost
-        upgradeArrayList = new ArrayList <Upgrade>();
-        upgradeArrayList.add(new Upgrade("Upgrade1","Test av første upgrade", "drawable/cpu_1.png",0.01,20));
-        upgradeArrayList.add(new Upgrade("Upgrade2","Test av annen upgrade","drawable/cpu_1.png",0.02,30));
-
-        //trenger flere av disse etterhvert.
-
-
-
-        //looper gjennom og legger upgradene inni upgrade arrayet.
-
-        //TODO: lag upgrades som vi legger inn i ArrayListen til spilleren.
+    public BigDecimal getBigAcumulatedValue(){
+        return new BigDecimal(this.getAccumalatedvalue());
     }
 
     @Override
     public String toString() {
 
-        return "Name: "+this.getTitle() +" Cost: "+ this.getCost()+"$ Value: "+this.getValue()+" BTC /n";
+        return "Name: "+this.getTitle() +" Cost: "+ this.getCost()+"$ Value: "+this.getAccumalatedvalue()+" BTC ";
     }
 
-    public ArrayList<Upgrade>  getUpgradesArrayList(){
-        return upgradeArrayList;
+    public long getId(){
+        return this.id;
     }
+
 }

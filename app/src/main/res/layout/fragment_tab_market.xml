@@ -5,19 +5,6 @@
     tools:context=".Tabs.TabFragmentExchange">
     <!-- Layout fil for cryptoclicker marked-->
 
-    <!--  Senere, tror det kan være lurt av vi eventuelt Hider Upgrades som er kjøpt, eller av en viss type.
-     //hider de helt med GONE, eller vi kan Greye dem ut med å dissable Buy button etc.
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/LayoutManager">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hide Bought"/>
-    </LinearLayout>
-        -->
-
     <!-- Mulig det er bedre å bruke LinearLayout viss disse Relative Layoutene skal forsvinne en
      eller annen gang og da skal viewene flytte seg en plass opp.-->
    <LinearLayout
@@ -25,31 +12,41 @@
        android:layout_height="wrap_content"
        android:layout_alignParentTop="true"
        android:orientation="horizontal"
-       android:id="@+id/marketUpperButtonLayout">
+       android:id="@+id/marketUpperButtonLayout"
+       android:layout_margin="0dp">
+
+        <!-- TODO set color filter-->
 
        <Button
-           android:layout_width="wrap_content"
+           android:id="@+id/upgradeButton"
+           android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:text="Show Upgrades"
-           android:layout_weight="2"/>
+           android:text="Upgrades"
+           android:layout_weight="2"
+           android:minHeight="0dp"
+           android:maxHeight="36dp"
+           android:layout_gravity="right"
+           android:layout_marginRight="5dp" />
 
        <Button
-           android:layout_width="wrap_content"
+           android:layout_marginLeft="5dp"
+           android:id="@+id/clickUpgradeButton"
+           android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:text="Show Click Upgrades"
-           android:layout_weight="2"/>
-
-       <Button
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Show All"
-           android:layout_weight="2"/>
-
+           android:text="Click Upgrades"
+           android:layout_weight="2"
+           android:layout_gravity="left"
+           android:minHeight="0dp"
+           android:maxHeight="36dp"
+           />
    </LinearLayout>
+
     <ListView
         android:id="@+id/markedListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/marketUpperButtonLayout"></ListView>
+
 
 <!--
     <RelativeLayout

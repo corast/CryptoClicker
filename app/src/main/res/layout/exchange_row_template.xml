@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/exchange_background"
+    android:id="@+id/exchange_row"
+    android:elevation="20dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bitcoin_exchange_48"
+        android:id="@+id/exchange_imageView_bitcoin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000 0000 0000 0000 0000.0000"
+        android:id="@+id/exchange_textView_bitcoin"
+        android:gravity="end"
+        android:textSize="20sp"
+        android:textColor="@color/gold"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/exchange_textView_dollar"
+        android:layout_alignEnd="@+id/exchange_textView_dollar" />
+
+    <ImageView
+        android:id="@+id/exchange_imageView_dollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dollar_52"
+        android:layout_below="@+id/exchange_imageView_bitcoin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000 0000 0000 0000 0000.00"
+        android:id="@+id/exchange_textView_dollar"
+        android:layout_alignBottom="@+id/exchange_imageView_dollar"
+        android:layout_alignBaseline="@id/exchange_imageView_dollar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="end"
+        android:textSize="20sp"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/greenDollar"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/arrow_down_48"
+        android:layout_below="@+id/exchange_textView_bitcoin"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -3,12 +3,17 @@ package com.sondreweb.cryptoclicker.Tabs;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
 
 /**
- * Created by sondre on 14-Feb-16.
+ * Denne har ansvar for å bytte tabber og gi oss mulighet for å swipe bytte tab.
  */
 public class TabsPagerAdapter extends FragmentStatePagerAdapter {
+    private static final String TAG = "TabsPagerAdapter";
+
     private int numberOfTabs;
+
+
     //konstruktør for å lage tabene.
     public TabsPagerAdapter(FragmentManager fragmentManager, int numberOfTabs){
         super(fragmentManager);
@@ -17,7 +22,7 @@ public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        //må switche mellom hvilken fragment å hoppe til.
+        //switcher mellom hvilken fragment å hoppe til.
         switch (position){
             case 0:
                 TabFragmentClick tab1 = new TabFragmentClick();
@@ -34,10 +39,14 @@ public class TabsPagerAdapter extends FragmentStatePagerAdapter {
             default:
                 return null;
         }
-        //skulle gjerne gjordt det slik at vi kan flytte oss fra tab 0 til tab 3,
+        //skulle gjerne gjordt det slik at vi kan flytte oss fra tab 0 til tab 3, og fra tab 3 til 0.
         //ved å dra skjermen over til venstre eller omvent.
     }
 
+    @Override
+    public int getItemPosition(Object object) {
+        return super.getItemPosition(object);
+    }
 
     @Override
     public int getCount() {

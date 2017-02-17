@@ -22,6 +22,7 @@ android {
     sourceSets {
         main {
             res.srcDirs = ['src/main/res', 'src/main/res/upgrades', 'src/main/res/click_upgrades']
+            //ved å legge til flere direktorater, får man flere resource folders å hente bilder fra.
         }
     }
 }
@@ -32,6 +33,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:support-v4:23.2.0'
     compile 'com.android.support:design:23.2.0'
+    compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+    //henter ferdiglagde animasjoner her ifra.
 }
 
 

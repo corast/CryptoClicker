@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!-- Itemsene vi kan trykke på i toolbaren til gameActivitiene.
-        Trenger save and exit, save, exit og kjør i bakgrunn, load annen bruker?-->
+    <!-- Itemsene vi kan trykke på i toolbaren til gameActivitiene.-->
+  <!--   Problemet var at Settings Activity fungerte dårlig inni spillet, så måtte fjerne den så lenge.
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:icon="@android:drawable/ic_menu_save"
+        android:icon="@drawable/settings_48"
         android:title="settings"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/action_setting_saveAndExit"
-        android:orderInCategory="100"
-        android:icon="@android:drawable/ic_menu_save"
-        android:title="settings"
-        app:showAsAction="always"/>
-
-    <item
-        android:id="@+id/action_menu"
-        android:title="test"
-        android:icon="@android:drawable/ic_menu_add"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
+        -->
 </menu>

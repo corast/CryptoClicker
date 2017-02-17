@@ -3,11 +3,26 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="darkRed">#ef010d</color>
     <color name="grey">#736c67</color>
+    <color name="greyLite">#85817f</color>
     <color name="white">#ffffff</color>
     <color name="gold">#d4af37</color>
     <color name="greenDollar">#85bb65</color>
     <color name="ManitouBlue">#6291a5</color>
     <color name="Black">#4a6e7e</color>
+    <color name="teal">#80cbc4</color>
+    <color name="green">#66bb6a</color>
+    <color name="floatingTextBitcoin">#d4d137</color>
+    <color name="pineApple">#FCDC3B</color>
+    <color name="lightGreen">#7FFF00</color>
+    <color name="redWard">#fff44336</color>
+
+    <color name="exchange_background">#EEE0E0E0</color>
+
+
+
+
+
 
 </resources>
